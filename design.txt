@@ -1,0 +1,1216 @@
+Det du har nu er faktisk pænt, men det er:
+
+meget neutralt
+
+ingen visuel energi
+
+ingen storytelling
+
+ingen bevægelse
+
+ingen “wow”
+
+Det er typisk AI-default design.
+
+Så løsningen er ikke bedre kode – det er bedre design-prompt.
+
+Jeg viser dig præcis hvordan du gør.
+
+1. Hvad der mangler i dit nuværende design
+
+Når jeg ser dine screenshots, mangler disse 6 ting:
+
+1. Visual storytelling
+
+Heroen er bare tekst.
+
+Der bør være fx:
+
+live savings counter
+
+animation
+
+graf
+
+illustration
+
+energi-visual
+
+2. Farveenergi
+
+Alt er gråt/hvidt.
+
+En energi-challenge bør have:
+
+grøn
+
+blå
+
+neon accents
+
+gradienter
+
+3. Motion
+
+Alt er statisk.
+
+Man bør have:
+
+hover animation
+
+progress bars
+
+live counters
+
+leaderboard movement
+
+4. Social proof
+
+Heroen bør vise fx:
+
+14.203 husstande deltager
+2.3 MWh sparet
+5. Gamification
+
+Der bør være hints til:
+
+badges
+
+leaderboard
+
+progress
+
+6. Premium feeling
+
+Det nuværende ligner:
+
+“template landing page”
+
+Ikke:
+
+“seriøs tech platform”
+
+2. Sådan får du Claude til at lave langt bedre design
+
+Du skal give design direction + references.
+
+Eksempel på god prompt:
+
+Redesign this page to feel like a premium modern energy-tech product.
+
+Design inspiration:
+Stripe
+Vercel
+Linear
+Arc Browser
+Apple product pages
+
+Style guidelines:
+
+• bold modern hero section
+• subtle gradients
+• large typography
+• smooth micro animations
+• modern glass cards
+• energy-themed color palette
+• visually engaging statistics
+
+Add:
+
+• animated energy savings counter
+• leaderboard preview
+• progress visualization
+• background gradient glow
+• subtle motion effects
+
+Make the hero visually powerful.
+
+Avoid generic SaaS templates.
+
+The page should feel like a modern tech startup product launch.
+
+Det ændrer radikalt hvad Claude laver.
+
+3. Et eksempel på en langt federe hero
+
+Din nuværende hero:
+
+Spar strøm. Vind præmier.
+
+Kun tekst.
+
+En bedre hero kunne være:
+
+Spar strøm i 7 dage
+og se din besparelse live
+
+Med:
+
+live kWh counter
+
+animated leaderboard
+
+gradient background
+
+Claude prompt:
+
+Create a visually powerful hero section.
+
+Include:
+
+• animated kWh savings counter
+• subtle gradient background
+• glowing energy particle animation
+• large modern typography
+• floating stat cards
+
+Example stats:
+
+24,531 kWh saved
+1,482 households competing
+Top saver: 32% reduction
+
+Use smooth motion and subtle glow effects.
+
+The hero should feel dynamic and energetic.
+4. Giv Claude en design system prompt
+
+Dette er en af de vigtigste ting.
+
+Send fx:
+
+Create a design system for this platform.
+
+Color palette:
+
+Primary:
+#16a34a (energy green)
+
+Secondary:
+#0ea5e9 (electric blue)
+
+Accent:
+#f59e0b (energy highlight)
+
+Background:
+#0f172a dark gradient
+
+Typography:
+Inter or Geist
+
+Design style:
+
+• minimal but energetic
+• tech product aesthetic
+• smooth shadows
+• soft gradients
+• glowing accents
+• rounded corners
+• glass cards
+
+Animations:
+
+• hover lift
+• subtle glow
+• smooth transitions
+• progress bar animations
+
+Så stopper Claude med at lave “default SaaS”.
+
+5. Brug også visual references
+
+Claude reagerer meget på references.
+
+Skriv fx:
+
+Design style reference:
+
+stripe.com
+vercel.com
+linear.app
+arc.net
+superhuman.com
+
+Så ændrer designet sig markant.
+
+6. En endnu bedre strategi (jeg bruger selv)
+
+I stedet for:
+
+“Build the page”
+
+Så gør dette:
+
+Step 1
+
+Få Claude til at lave design brief
+
+Act as a senior product designer.
+
+Design a premium landing page for an energy challenge platform.
+
+Describe the layout, sections, animations and visual style.
+Step 2
+
+Når den har lavet designet
+
+så siger du:
+
+Now implement the design in Next.js with Tailwind and shadcn/ui.
+
+Så bliver resultatet 10x bedre.
+
+7. Hurtige forbedringer du kan lave nu
+
+Jeg ville ændre 5 ting:
+
+Hero
+
+Gradient baggrund
+
+from-green-400 to-blue-500
+Stat cards
+🏆 32% bedste besparelse
+⚡ 12.420 kWh sparet
+👥 3.201 deltagere
+Leaderboard preview
+
+Vis:
+
+1. Familie Jensen
+2. Husstand 208
+3. Team Aarhus
+Progress bar
+Din besparelse
+██████░░░░ 14%
+Animation
+
+Cards:
+
+hover:scale-105
+transition-all
+duration-300
+8. Hvis du vil kan jeg også gøre dette
+
+Jeg kan designe en meget federe version af din landing page, fx:
+
+Stripe-style hero
+
+live energy counter
+
+leaderboard animation
+
+gradient energy background
+
+gamification preview
+
+Så du får noget der ligner et startup der lige har rejst 50M$.
+
+Det vil tage mig ca 5 minutter at tegne arkitekturen.
+
+Hvis du vil, kan jeg også vise dig:
+
+"Sådan bygger man AI-design der ser 10x bedre ud end normalt Claude output."
+
+Det er en ret vild teknik.
+
+ja tak
+
+Perfekt. Jeg viser dig nu den metode jeg selv bruger til at få LLM’er (Claude / GPT / Cursor) til at lave virkelig stærkt UI-design.
+Det er meget mere effektivt end bare at skrive “lav en pæn side”.
+
+Vi gør det i 3 lag:
+
+1️⃣ AI Product Designer
+2️⃣ AI UI Architect
+3️⃣ AI Frontend Developer
+
+Det giver 10-20x bedre design.
+
+1. Trin 1 – få Claude til at være Product Designer
+
+Du beder ikke om kode endnu.
+
+Prompt:
+
+You are a senior product designer at Stripe.
+
+Design a visually stunning landing page for a product called:
+
+"Energy Challenge"
+
+The product lets households compete to reduce electricity usage over 7 days.
+
+Goals:
+• feel like a modern tech startup
+• visually exciting
+• energetic
+• motivating
+
+Design inspiration:
+Stripe
+Vercel
+Arc Browser
+Linear
+Tesla
+
+Describe:
+
+1. Hero section
+2. Visual elements
+3. Motion and animations
+4. Color palette
+5. Typography
+6. Layout structure
+7. Social proof elements
+8. Gamification elements
+
+Focus on creating a landing page that feels premium and modern.
+
+Nu får du et designkoncept.
+
+Ikke kode.
+
+Det er vigtigt.
+
+2. Trin 2 – AI UI Architect
+
+Når designet er godt, skriver du:
+
+Now act as a senior UI architect.
+
+Convert the design into a component architecture using:
+
+Next.js
+Tailwind
+shadcn/ui
+
+Describe:
+
+• page sections
+• components
+• layout structure
+• reusable UI components
+• animation strategy
+
+Nu får du noget i stil med:
+
+HeroSection
+EnergyStats
+LeaderboardPreview
+ChallengeSteps
+PrizeSection
+CTASection
+3. Trin 3 – AI Frontend Developer
+
+Først nu beder du om kode.
+
+Prompt:
+
+Now implement the landing page in Next.js using:
+
+Tailwind
+shadcn/ui
+Recharts
+
+Requirements:
+
+• modern gradients
+• subtle animations
+• responsive layout
+• premium feel
+• clean spacing
+• micro-interactions
+
+Use reusable components.
+
+Focus on creating a visually impressive hero section.
+4. Sådan skal en hero se ud for dit projekt
+
+Ikke sådan her:
+
+Spar strøm. Vind præmier.
+
+Det er fladt.
+
+En stærk hero kunne være:
+
+Spar strøm i 7 dage
+og se din besparelse live
+
+Med:
+
+Live stats
+⚡ 42.381 kWh sparet
+👥 3.204 deltagere
+🌍 9.8 ton CO₂ reduceret
+Animated leaderboard preview
+1. Familie Jensen     28%
+2. Team Aarhus        24%
+3. Husstand 204       21%
+Progress animation
+Din besparelse
+
+██████░░░░░░░░
+14%
+5. Farver der virker til energi
+
+Claude vælger typisk kedelige farver.
+
+Bed i stedet om:
+
+Primary:
+#16a34a energy green
+
+Secondary:
+#0ea5e9 electric blue
+
+Accent:
+#f59e0b energy highlight
+
+Background:
+dark gradient
+
+Så får du noget der føles tech / energi / fremtid.
+
+6. Micro animations (vigtigt)
+
+Bed Claude bruge:
+
+• hover lift
+• subtle glow
+• smooth transitions
+• animated counters
+• progress bar animations
+
+Tailwind eksempel:
+
+transition-all
+duration-300
+hover:scale-105
+7. Brug visual inspiration
+
+Claude bliver meget bedre hvis du giver referencer.
+
+Til dit projekt:
+
+Design inspiration:
+
+stripe.com
+vercel.com
+linear.app
+arc.net
+tesla.com
+8. Den vigtigste hemmelighed
+
+Hvis du bare skriver:
+
+Build a landing page
+
+får du template design.
+
+Hvis du skriver:
+
+Design a landing page like a $100M startup product launch
+
+så ændrer output sig drastisk.
+
+9. Eksempel på en virkelig god prompt
+
+Du kan copy-paste denne:
+
+You are a world-class product designer.
+
+Redesign this landing page to feel like a modern tech startup product.
+
+Design inspiration:
+Stripe
+Vercel
+Linear
+Arc Browser
+
+Goals:
+• visually exciting
+• premium
+• energetic
+• minimal but powerful
+
+Add:
+
+• animated energy counter
+• leaderboard preview
+• progress visualization
+• gradient hero background
+• modern glass cards
+• subtle glow effects
+• smooth micro-interactions
+
+Avoid generic SaaS templates.
+
+The page should feel like a high-end startup product launch.
+10. Hvis du vil kan jeg også gøre dette
+
+Jeg kan designe en meget federe version af din platform:
+
+Jeg kan vise dig:
+
+🔥 en hero der konverterer meget bedre
+
+🔥 gamification UI
+
+🔥 dashboard der føles som en app
+
+🔥 leaderboard der føles levende
+
+🔥 admin UI der ser enterprise ud
+
+Og jeg kan også vise dig hvordan man får Claude til at bygge hele platformen 5-10x hurtigere.
+
+Hvis du vil, kan jeg også tegne den visuelle arkitektur for hele appen (det er det vigtigste skridt).
+
+ja tak
+
+Super. Jeg tegner nu den visuelle arkitektur for hele platformen, så du kan få Claude til at bygge noget der føles som et rigtigt tech-produkt og ikke bare en simpel kampagneside.
+
+Jeg holder det produktniveau + UI-niveau, så du kan bruge det direkte i udviklingen.
+
+1. Overordnet produktoplevelse
+
+Din platform bør føles som:
+
+Strava + Duolingo + Tesla Energy
+
+Det betyder:
+
+• live data
+• konkurrence
+• fremskridt
+• social energi
+• smuk visualisering
+
+2. Den komplette brugerrejse
+
+Sådan skal en bruger opleve produktet:
+
+Landing page
+↓
+Sign up
+↓
+Opret husstand
+↓
+Forbind strømdata
+↓
+Baseline beregnes
+↓
+Challenge starter
+↓
+Dashboard med live data
+↓
+Leaderboard / grupper
+↓
+Vindere kåres
+3. Landing page (konverteringsmaskine)
+
+Hero skal være emotion + data.
+
+Layout:
+
+------------------------------------------------
+Logo                          Log ind / Tilmeld
+------------------------------------------------
+
+SPAR STRØM I 7 DAGE
+SE DIN BESPARRELSE LIVE
+
+⚡ 42.381 kWh sparet
+👥 3.204 deltagere
+🌍 9.8 ton CO₂ reduceret
+
+[ Start challenge ]   [ Sådan virker det ]
+
+Leaderboard preview
+1. Familie Jensen - 28%
+2. Team Aarhus - 24%
+3. Husstand 301 - 21%
+
+------------------------------------------------
+
+Hero baggrund:
+
+gradient + energy particles
+4. Onboarding flow
+
+Når man klikker Start challenge:
+
+Step 1
+Opret konto
+Step 2
+Opret husstand
+
+• boligtype
+• antal personer
+• postnummer
+• flyttet ind dato
+Step 3
+Forbind strømdata
+
+Muligheder:
+
+Energinet login
+Upload CSV
+Manuel integration
+Step 4
+Baseline beregnes
+
+Loader animation:
+
+Analyserer dit strømforbrug...
+5. Dashboard (hjertet af produktet)
+
+Dette skal føles som en rigtig app.
+
+Layout:
+
+------------------------------------------------
+Din Challenge
+------------------------------------------------
+
+Din besparelse
+⚡ 18% mindre strøm
+
+Du har sparet
+7.4 kWh
+
+Svarende til
+24 kr
+
+CO₂ sparet
+2.1 kg
+Graf
+Baseline vs Challenge
+
+Graf eksempel:
+
+|         baseline
+|        ------
+|       /      \
+|      /        \
+|
+| challenge
+|   ----
+Progress
+Din fremgang
+
+████████░░░░
+18%
+Rank
+Din placering
+
+#143 ud af 3.204
+6. Leaderboard
+
+Dette er meget vigtigt for engagement.
+
+Layout:
+
+Top sparere
+
+1 🥇 Familie Jensen       28%
+2 🥈 Team Aarhus          24%
+3 🥉 Husstand 401         23%
+4    Villa Viborg         22%
+
+Filtre:
+
+Danmark
+Min by
+Mine venner
+Min gruppe
+7. Grupper (viral vækst)
+
+Man kan lave grupper:
+
+Aarhus
+Vejle
+Kollegiet
+Familien
+Arbejdsplads
+
+Leaderboard:
+
+Gruppe Aarhus
+
+1. Anders
+2. Louise
+3. Henrik
+
+Dette gør at folk inviterer hinanden.
+
+8. Missions (gamification)
+
+Eksempel:
+
+Missioner
+
+✓ Sluk standby i 24 timer
+✓ Vask tøj efter kl 20
+✓ Brug tørresnor
+✓ Spar 10%
+
+Belønning:
+
+Badge unlocked
+9. Badges
+
+Eksempel:
+
+🏆 10% saver
+⚡ Night saver
+🌱 CO2 hero
+👑 Top 10%
+10. Admin dashboard
+
+Energi-selskabet skal kunne se:
+
+Dashboard
+------------------------------------------------
+
+Deltagere
+3.204
+
+Aktive
+2.891
+
+Samlet besparelse
+42.381 kWh
+
+CO₂ reduceret
+9.8 ton
+Graf
+Besparelse over tid
+Funnel
+Besøg side
+15.000
+
+Signups
+4.100
+
+Connected data
+3.204
+
+Active
+2.891
+11. Farver (energi tema)
+
+Jeg anbefaler:
+
+Primary
+
+#16a34a
+
+Electric accent
+
+#0ea5e9
+
+Highlight
+
+#f59e0b
+
+Background
+
+dark gradient
+12. Micro interactions
+
+Platformen skal føles levende.
+
+Animationer:
+
+leaderboard scroll
+live counters
+progress bars
+hover lift
+subtle glow
+13. Design inspiration
+
+Bed Claude tage inspiration fra:
+
+• stripe.com
+• vercel.com
+• linear.app
+• arc.net
+• tesla.com
+
+14. Claude prompt der virker
+
+Du kan copy-paste dette:
+
+You are a world-class product designer.
+
+Design a modern energy challenge platform.
+
+Users compete to reduce electricity consumption over 7 days.
+
+The UI should feel like:
+
+Strava
+Duolingo
+Tesla Energy
+Stripe
+
+Goals:
+
+• visually exciting
+• motivating
+• premium tech product
+• strong gamification
+
+Include:
+
+• animated energy savings counters
+• leaderboard
+• progress bars
+• missions
+• badges
+• live statistics
+• smooth micro animations
+
+Design the following pages:
+
+Landing page
+Onboarding
+Dashboard
+Leaderboard
+Groups
+Admin dashboard
+15. Den næste store mulighed
+
+Din idé er faktisk ret stærk for energi-selskaber.
+
+Hvis platformen bygges rigtigt kan den blive:
+
+white label SaaS
+
+som sælges til:
+
+• energiselskaber
+• kommuner
+• boligforeninger
+• forsyningsselskaber
+
+16. Hvis du vil kan jeg også vise dig
+
+Jeg kan tegne:
+
+en ekstremt stærk version af platformen
+
+inklusive:
+
+🔥 landing page der konverterer
+
+🔥 dashboard UI
+
+🔥 leaderboard UX
+
+🔥 gamification system
+
+🔥 admin panel
+
+Så Claude kan bygge noget der ligner en $50M startup platform.
+
+Det vil sandsynligvis være det vigtigste skridt i hele projektet.
+
+ja tak
+
+Perfekt. Nu laver jeg den visuelle blueprint for hele platformen, så du kan få Claude til at bygge noget der ligner et seriøst venture-startup produkt og ikke bare en kampagneside.
+
+Jeg designer det som en rigtig SaaS-platform fordi du tidligere sagde målet er at sælge det til energiselskaber. Det ændrer hvordan vi tænker UX.
+
+Platform Blueprint – Energy Challenge
+1. Landing page (marketing)
+4
+
+Landing page skal ikke bare forklare – den skal sælge oplevelsen.
+
+Hero layout
+---------------------------------------
+Logo                Log ind   Start
+---------------------------------------
+
+SPAR STRØM I 7 DAGE
+SE DIN BESPARRELSE LIVE
+
+⚡ 41.200 kWh sparet
+👥 3.412 deltagere
+🌍 10.1 ton CO₂ reduceret
+
+[ Start challenge ]   [ Sådan virker det ]
+
+Live leaderboard preview
+---------------------------------------
+1. Familie Jensen   -28%
+2. Aarhus Team      -24%
+3. Husstand 301     -22%
+---------------------------------------
+
+Hero baggrund:
+
+dark gradient + energy glow
+Section 2 – Sådan virker det
+
+Du har allerede denne, men den kan forbedres:
+
+1. Opret konto
+2. Forbind strømdata
+3. Spar strøm i 7 dage
+4. Vind præmier
+
+Men tilføj grafik + animation.
+
+Section 3 – Live challenge data
+Samlet besparelse
+█████████████
+41.200 kWh
+
+Dette gør siden levende.
+
+Section 4 – Præmier
+1. Tesla wall charger
+2. 10.000 kr energipulje
+3. Smart home kit
+Section 5 – Social proof
+3.412 danske husstande deltager allerede
+2. Onboarding flow
+
+Dette er kritisk for konvertering.
+
+Flow:
+
+Sign up
+↓
+Opret husstand
+↓
+Forbind strømdata
+↓
+Baseline beregnes
+↓
+Challenge starter
+Step 1
+Navn
+Email
+Kode
+Step 2
+Boligtype
+Antal personer
+Postnummer
+Flyttet ind dato
+Step 3
+Forbind strømdata
+
+Muligheder:
+
+Energinet login
+Upload data
+Manuel forbindelse
+Step 4
+Analyserer dit strømforbrug...
+
+Progress animation.
+
+3. Dashboard (platformens hjerte)
+4
+
+Dashboard skal føles som en app, ikke en hjemmeside.
+
+Top stats
+Din besparelse
+⚡ 18%
+
+Du har sparet
+7.4 kWh
+
+Penge sparet
+24 kr
+
+CO₂ sparet
+2.1 kg
+Graf
+Baseline vs Challenge
+
+Graf viser:
+
+baseline
+-------
+challenge
+---
+Progress bar
+Din fremgang
+
+████████░░░░
+18%
+Rank
+Din placering
+#143 / 3.412
+4. Leaderboard
+4
+
+Leaderboard skaber engagement.
+
+Top sparere
+
+🥇 Familie Jensen      28%
+🥈 Team Aarhus         24%
+🥉 Husstand 401        23%
+4  Villa Viborg        22%
+
+Filtre:
+
+Danmark
+Min by
+Mine venner
+Min gruppe
+5. Grupper (viral vækst)
+Opret gruppe
+
+Aarhus
+Kollegiet
+Arbejdsplads
+Familie
+
+Leaderboard i gruppe:
+
+Aarhus
+
+1. Anders
+2. Louise
+3. Henrik
+
+Dette gør at folk inviterer hinanden.
+
+6. Missions (gamification)
+Missioner
+
+✓ Sluk standby
+✓ Vask efter kl 20
+✓ Spar 10%
+✓ Spar 15%
+
+Belønning:
+
+Badge unlocked
+7. Badges
+🏆 10% saver
+⚡ Night saver
+🌱 CO2 hero
+👑 Top 10%
+8. Admin dashboard (energiselskab)
+4
+
+Admin skal kunne se:
+
+Deltagere
+3.412
+
+Aktive
+2.980
+
+Samlet besparelse
+41.200 kWh
+
+CO₂ reduceret
+10.1 ton
+Graf
+Besparelse pr dag
+Funnel
+Besøg side
+15.000
+
+Signups
+4.200
+
+Connected data
+3.412
+
+Active
+2.980
+9. Design system
+
+Farver:
+
+Primary
+#16a34a
+
+Secondary
+#0ea5e9
+
+Accent
+#f59e0b
+
+Baggrund:
+
+dark gradient
+10. Micro animations
+
+Platformen skal føles levende.
+
+live counters
+progress bars
+hover lift
+leaderboard scroll
+subtle glow
+11. Claude prompt der bygger hele UI’et
+
+Du kan give Claude dette:
+
+You are a world-class product designer.
+
+Design a modern energy challenge platform.
+
+Users compete to reduce electricity consumption over 7 days.
+
+The UI should feel like:
+
+Strava
+Duolingo
+Tesla Energy
+Stripe
+
+Goals:
+
+• visually exciting
+• motivating
+• premium tech product
+• strong gamification
+
+Include:
+
+• animated energy savings counters
+• leaderboard
+• progress bars
+• missions
+• badges
+• live statistics
+• smooth micro animations
+
+Design the following pages:
+
+Landing page
+Onboarding
+Dashboard
+Leaderboard
+Groups
+Admin dashboard
+12. Den store mulighed i din idé
+
+Din platform kan blive:
+
+white label SaaS
+
+som sælges til:
+
+energiselskaber
+
+kommuner
+
+boligforeninger
+
+forsyningsselskaber

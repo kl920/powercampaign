@@ -1,0 +1,487 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Theme Inline: expose CSS vars to Tailwind ─────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Sidebar */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  /* Charts */
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-chart-baseline: var(--chart-baseline);
+
+  /* Core */
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Status */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-danger: var(--danger);
+
+  /* Energy */
+  --color-energy-green: var(--energy-green);
+  --color-energy-green-light: var(--energy-green-light);
+  --color-energy-blue: var(--energy-blue);
+  --color-energy-blue-light: var(--energy-blue-light);
+  --color-energy-amber: var(--energy-amber);
+  --color-energy-amber-light: var(--energy-amber-light);
+
+  /* Badges */
+  --color-badge-saver: var(--badge-saver);
+  --color-badge-night: var(--badge-night);
+  --color-badge-co2: var(--badge-co2);
+  --color-badge-top: var(--badge-top);
+  --color-badge-streak: var(--badge-streak);
+  --color-badge-locked: var(--badge-locked);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ─── Light mode (compatible, not redesigned) ────────────────────────── */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.45 0.2 145);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.4 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.45 0.2 145);
+  --radius: 0.625rem;
+
+  /* Status */
+  --success: oklch(0.45 0.18 145);
+  --warning: oklch(0.65 0.18 80);
+  --info: oklch(0.5 0.15 230);
+  --danger: oklch(0.58 0.22 27);
+
+  /* Energy */
+  --energy-green: oklch(0.5 0.2 145);
+  --energy-green-light: oklch(0.6 0.18 145);
+  --energy-green-glow: oklch(0.5 0.2 145 / 15%);
+  --energy-blue: oklch(0.55 0.15 230);
+  --energy-blue-light: oklch(0.65 0.12 230);
+  --energy-blue-glow: oklch(0.55 0.15 230 / 15%);
+  --energy-amber: oklch(0.7 0.16 80);
+  --energy-amber-light: oklch(0.8 0.12 80);
+
+  /* Badges */
+  --badge-saver: oklch(0.5 0.2 145);
+  --badge-night: oklch(0.5 0.18 280);
+  --badge-co2: oklch(0.5 0.15 170);
+  --badge-top: oklch(0.7 0.16 80);
+  --badge-streak: oklch(0.6 0.18 25);
+  --badge-locked: oklch(0.8 0 0);
+
+  /* Charts */
+  --chart-1: oklch(0.5 0.2 145);
+  --chart-2: oklch(0.55 0.15 230);
+  --chart-3: oklch(0.6 0.15 200);
+  --chart-4: oklch(0.7 0.16 80);
+  --chart-5: oklch(0.55 0.1 280);
+  --chart-baseline: oklch(0.6 0 0 / 40%);
+
+  /* Sidebar */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.45 0.2 145);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.45 0.2 145);
+}
+
+/* ─── Dark mode – premium energy palette ─────────────────────────────── */
+.dark {
+  --background: oklch(0.085 0.01 270);
+  --foreground: oklch(0.93 0 0);
+  --card: oklch(0.12 0.01 270);
+  --card-foreground: oklch(0.93 0 0);
+  --popover: oklch(0.12 0.01 270);
+  --popover-foreground: oklch(0.93 0 0);
+  --primary: oklch(0.65 0.2 145);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.16 0.01 270);
+  --secondary-foreground: oklch(0.93 0 0);
+  --muted: oklch(0.16 0.01 270);
+  --muted-foreground: oklch(0.55 0.02 270);
+  --accent: oklch(0.18 0.02 270);
+  --accent-foreground: oklch(0.93 0 0);
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(1 0 0 / 7%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.65 0.2 145);
+
+  /* Status */
+  --success: oklch(0.65 0.2 145);
+  --warning: oklch(0.8 0.16 80);
+  --info: oklch(0.7 0.15 230);
+  --danger: oklch(0.65 0.22 25);
+
+  /* Energy */
+  --energy-green: oklch(0.65 0.2 145);
+  --energy-green-light: oklch(0.75 0.18 145);
+  --energy-green-glow: oklch(0.65 0.2 145 / 15%);
+  --energy-blue: oklch(0.7 0.15 230);
+  --energy-blue-light: oklch(0.8 0.12 230);
+  --energy-blue-glow: oklch(0.7 0.15 230 / 15%);
+  --energy-amber: oklch(0.8 0.16 80);
+  --energy-amber-light: oklch(0.88 0.12 80);
+
+  /* Badges */
+  --badge-saver: oklch(0.65 0.2 145);
+  --badge-night: oklch(0.65 0.18 280);
+  --badge-co2: oklch(0.65 0.15 170);
+  --badge-top: oklch(0.8 0.16 80);
+  --badge-streak: oklch(0.7 0.18 25);
+  --badge-locked: oklch(0.25 0 0);
+
+  /* Charts */
+  --chart-1: oklch(0.65 0.2 145);
+  --chart-2: oklch(0.7 0.15 230);
+  --chart-3: oklch(0.6 0.15 200);
+  --chart-4: oklch(0.8 0.16 80);
+  --chart-5: oklch(0.55 0.1 280);
+  --chart-baseline: oklch(0.45 0 0 / 50%);
+
+  /* Sidebar */
+  --sidebar: oklch(0.1 0.01 270);
+  --sidebar-foreground: oklch(0.93 0 0);
+  --sidebar-primary: oklch(0.65 0.2 145);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.16 0.01 270);
+  --sidebar-accent-foreground: oklch(0.93 0 0);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: oklch(0.65 0.2 145);
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+
+  /* Consistent focus-visible across all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Utility: Glassmorphism ─────────────────────────────────────────── */
+@layer utilities {
+  .glass {
+    background: oklch(1 0 0 / 3%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 5%);
+    border: 1px solid oklch(1 0 0 / 7%);
+  }
+
+  .glass-card {
+    background: oklch(1 0 0 / 3%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 5%),
+      0 4px 24px oklch(0 0 0 / 12%);
+    border: 1px solid oklch(1 0 0 / 7%);
+    border-radius: var(--radius-xl);
+  }
+
+  /* Glow effects */
+  .glow-green {
+    box-shadow:
+      0 0 20px var(--energy-green-glow),
+      0 0 60px oklch(0.65 0.2 145 / 5%);
+  }
+
+  .glow-blue {
+    box-shadow:
+      0 0 20px var(--energy-blue-glow),
+      0 0 60px oklch(0.7 0.15 230 / 5%);
+  }
+
+  .glow-amber {
+    box-shadow:
+      0 0 20px oklch(0.8 0.16 80 / 15%),
+      0 0 60px oklch(0.8 0.16 80 / 5%);
+  }
+
+  /* Hover lift (respects reduced motion) */
+  .hover-lift {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px oklch(0 0 0 / 20%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hover-lift:hover {
+      transform: none;
+    }
+  }
+
+  /* Energy gradients */
+  .energy-gradient {
+    background: linear-gradient(135deg, var(--energy-green), var(--energy-blue));
+  }
+
+  .energy-gradient-text {
+    background: linear-gradient(135deg, var(--energy-green-light), var(--energy-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .energy-gradient-subtle {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.2 145 / 8%),
+      oklch(0.7 0.15 230 / 8%)
+    );
+  }
+
+  /* Accent stripe (top border glow) */
+  .accent-stripe-green {
+    border-top: 2px solid var(--energy-green);
+    box-shadow: 0 -4px 12px var(--energy-green-glow);
+  }
+
+  .accent-stripe-blue {
+    border-top: 2px solid var(--energy-blue);
+    box-shadow: 0 -4px 12px var(--energy-blue-glow);
+  }
+
+  .accent-stripe-amber {
+    border-top: 2px solid var(--energy-amber);
+    box-shadow: 0 -4px 12px oklch(0.8 0.16 80 / 15%);
+  }
+
+  /* ─── Landing page utilities ─────────────────────────────────────── */
+
+  /* Subtle grid pattern overlay */
+  .grid-pattern {
+    background-image:
+      linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Pulsing live dot */
+  .pulse-dot {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Dramatic gradient text – green via white to blue */
+  .hero-gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--energy-green-light) 0%,
+      oklch(0.97 0 0) 50%,
+      var(--energy-blue-light) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass card with stronger backdrop for landing sections */
+  .glass-panel {
+    background: oklch(1 0 0 / 4%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 6%),
+      0 8px 40px oklch(0 0 0 / 15%);
+    border: 1px solid oklch(1 0 0 / 8%);
+    border-radius: var(--radius-2xl);
+  }
+
+  /* Number badge with gradient background */
+  .step-number {
+    background: linear-gradient(135deg, var(--energy-green), var(--energy-blue));
+    color: oklch(0.98 0 0);
+    font-weight: 800;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Shimmer line for section dividers */
+  .shimmer-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--energy-green-glow) 25%,
+      var(--energy-blue-glow) 75%,
+      transparent 100%
+    );
+  }
+
+  /* Float animation for background orbs */
+  .float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+  }
+  .float-medium {
+    animation: float-medium 15s ease-in-out infinite;
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+  @keyframes float-medium {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-25px, 20px) scale(1.03); }
+  }
+
+  /* ─── Cinematic landing page ─────────────────────────────────── */
+
+  /* Display text: hero-level */
+  .text-hero {
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  /* Display text: section-level */
+  .text-section {
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  /* White text with energy glow aura */
+  .text-glow {
+    text-shadow:
+      0 0 60px oklch(0.65 0.2 145 / 20%),
+      0 0 120px oklch(0.7 0.15 230 / 10%);
+  }
+
+  /* Gradient accent for individual words */
+  .text-gradient-accent {
+    background: linear-gradient(135deg, var(--energy-green-light), var(--energy-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Product showcase: perspective + tilt */
+  .perspective-container {
+    perspective: 2000px;
+  }
+  .perspective-tilt {
+    transform: rotateX(6deg);
+    transform-style: preserve-3d;
+  }
+
+  /* Dramatic showcase glow */
+  .showcase-glow {
+    box-shadow:
+      0 0 80px oklch(0.65 0.2 145 / 8%),
+      0 0 160px oklch(0.7 0.15 230 / 5%),
+      0 40px 100px oklch(0 0 0 / 50%);
+  }
+
+  /* Subtle luminous divider */
+  .divider-glow {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 8%), transparent);
+  }
+
+  /* Gradient border card (mask technique) */
+  .card-gradient-border {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    background: oklch(0.1 0.01 270);
+  }
+  .card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.2 145 / 50%),
+      oklch(0.7 0.15 230 / 50%),
+      oklch(0.65 0.2 145 / 50%)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot { animation: none; opacity: 1; }
+    .float-slow, .float-medium { animation: none; }
+    .perspective-tilt { transform: none; }
+  }
+}
