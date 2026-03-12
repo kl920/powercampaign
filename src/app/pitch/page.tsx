@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { Zap, Users, Target, TrendingUp, Trophy, ArrowRight, BarChart3, Shield, MapPin } from "lucide-react";
+import { Zap, Users, Target, TrendingUp, Trophy, ArrowRight, BarChart3, Shield, MapPin, Globe, ExternalLink } from "lucide-react";
 
 /* ── Animated counter ────────────────────────────────────────────── */
 function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
@@ -34,6 +34,13 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
       {value.toLocaleString("da-DK")}
       {suffix}
     </span>
+  );
+}
+
+/* ── Footnote ref ────────────────────────────────────────────────── */
+function Ref({ n }: { n: number }) {
+  return (
+    <a href={`#fn-${n}`} className="text-emerald-500/60 text-[9px] align-super hover:text-emerald-400 no-underline ml-0.5">[{n}]</a>
   );
 }
 
@@ -88,7 +95,7 @@ export default function PitchPage() {
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50 leading-relaxed sm:text-xl">
             Den første nationale energi-challenge.
             <br className="hidden sm:block" />
-            3,2 mio. husstande kan deltage — uanset leverandør.
+            3,3 mio. husstande kan deltage — uanset leverandør.<Ref n={1} />
             <br className="hidden sm:block" />
             <span className="text-white/70 font-medium">Powered by dit brand.</span>
           </p>
@@ -113,19 +120,17 @@ export default function PitchPage() {
         {/* Stats bar */}
         <div className="mt-20 grid w-full max-w-3xl grid-cols-3 gap-px rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden">
           {[
-            { end: 32, display: "3,2", suffix: " mio.", label: "Danske husstande med smart-måler" },
-            { end: 15, display: null, suffix: "%", label: "Gns. besparelse i kampagneuge" },
-            { end: 40, display: null, suffix: "%", label: "Lavere churn hos deltagere" },
+            { display: "3,3 mio.", label: "Danske husstande med smart-måler", ref: 1 },
+            { display: "5-15%", label: "Dokumenteret besparelse i internationale trials", ref: 2 },
+            { display: "1 mio.+", label: "Brugere på OhmConnect (USA)", ref: 3 },
           ].map((s, i) => (
             <div key={i} className="px-4 py-6 text-center sm:px-8 sm:py-8">
               <div className="text-2xl font-bold text-emerald-400 sm:text-3xl">
-                {s.display ? (
-                  <>{s.display}<span className="text-lg">{s.suffix}</span></>
-                ) : (
-                  <><Counter end={s.end} duration={1800} />{s.suffix}</>
-                )}
+                {s.display}
               </div>
-              <div className="mt-1 text-[11px] text-white/40 leading-tight sm:text-xs">{s.label}</div>
+              <div className="mt-1 text-[11px] text-white/40 leading-tight sm:text-xs">
+                {s.label}<Ref n={s.ref} />
+              </div>
             </div>
           ))}
         </div>
@@ -135,11 +140,11 @@ export default function PitchPage() {
       <section className="mx-auto max-w-4xl px-6 py-24">
         <p className="text-center text-sm font-medium uppercase tracking-widest text-white/30">Problemet</p>
         <h2 className="mt-4 text-center text-2xl font-bold sm:text-3xl">
-          Strøm er usynligt. Kunder skifter for 12 øre.
+          Strøm er usynligt. Kunderne har ingen relation til leverandøren.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-white/45 leading-relaxed">
-          Energimarkedet er en commodity-kamp. Prisen er ens. Kunderne har ingen relation til deres leverandør.
-          Marketingbudgettet konkurrerer mod alle andre om det samme budskab:
+          Energimarkedet er en commodity-kamp. Prisen er næsten ens. Marketingbudgettet konkurrerer
+          mod alle andre om det samme budskab:
           &ldquo;Skift til os, vi er billigst&rdquo;.
         </p>
         <p className="mt-6 text-center text-lg font-semibold text-emerald-400">
@@ -174,6 +179,58 @@ export default function PitchPage() {
         </div>
       </section>
 
+      {/* ─── INTERNATIONAL EVIDENS ───────────────────────────────── */}
+      <section className="mx-auto max-w-4xl px-6 py-16">
+        <p className="text-center text-sm font-medium uppercase tracking-widest text-white/30">International evidens</p>
+        <h2 className="mt-4 text-center text-2xl font-bold sm:text-3xl">
+          Konceptet er afprøvet — og det virker
+        </h2>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {[
+            {
+              name: "OhmConnect",
+              geo: "USA / Canada",
+              icon: Globe,
+              fact: "Over 1 mio. brugere gamificerer energireduktion i peak-timer. Opkøbt af EnergyHub i 2023.",
+              ref: 3,
+            },
+            {
+              name: "UK Power Networks",
+              geo: "Storbritannien",
+              icon: Globe,
+              fact: "\"Shift\"-kampagner betalte husstande for at flytte forbrug. Dokumenteret 10-15 % reduktion i spidslast.",
+              ref: 4,
+            },
+            {
+              name: "Enedis Ecowatt",
+              geo: "Frankrig",
+              icon: Globe,
+              fact: "Nationalt varslingssystem — opfordrer forbrugere til at reducere i spidslast. Millioner af brugere.",
+              ref: 5,
+            },
+            {
+              name: "Octopus Energy",
+              geo: "Storbritannien",
+              icon: Globe,
+              fact: "Bruger gamification (savings sessions, leaderboards) og har branchens laveste churn-rate i UK.",
+              ref: 6,
+            },
+          ].map((e, i) => (
+            <div key={i} className="rounded-2xl border border-white/5 bg-white/[0.02] p-5">
+              <div className="flex items-center gap-2">
+                <e.icon className="h-4 w-4 text-emerald-400/60" />
+                <h3 className="text-sm font-bold">{e.name}</h3>
+                <span className="text-[10px] text-white/30">{e.geo}</span>
+              </div>
+              <p className="mt-2 text-xs text-white/45 leading-relaxed">{e.fact}<Ref n={e.ref} /></p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-sm text-white/40">
+          I Danmark er der endnu ingen dedikeret kampagneplatform som white-label produkt, klar til at sætte dit brand på.
+        </p>
+      </section>
+
       {/* ─── TROJANSK HEST ───────────────────────────────────────── */}
       <section className="relative py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.03] to-transparent" />
@@ -183,7 +240,7 @@ export default function PitchPage() {
             Hver deltager er et kvalificeret lead
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-white/45 leading-relaxed">
-            Når en deltager forbinder via Eloverblik, giver de adgang til 12+ måneders timedata — <span className="text-white/70 font-medium">uanset hvem de køber strøm hos i dag.</span>
+            Når en deltager forbinder via Eloverblik, giver de adgang til 12+ måneders timedata<Ref n={7} /> — <span className="text-white/70 font-medium">uanset hvem de køber strøm hos i dag.</span>
           </p>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
@@ -202,7 +259,7 @@ export default function PitchPage() {
 
           <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-center">
             <p className="text-sm text-white/50 leading-relaxed">
-              Når kampagneugen slutter:
+              Når kampagneugen slutter, kan dashboardet vise:
             </p>
             <p className="mt-3 text-sm font-medium text-white/80 italic">
               &ldquo;Du sparede 38 kWh denne uge. Med vores FlexEl-aftale
@@ -245,7 +302,10 @@ export default function PitchPage() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs text-white/30 text-center">
+          <p className="mt-4 text-[10px] text-white/20 text-center italic">
+            Illustration — viser hvordan en live postnummerrangliste kunne se ud.
+          </p>
+          <p className="mt-2 text-xs text-white/30 text-center">
             Fodboldklubben poster på Facebook → Lokalavisen skriver &ldquo;Køge fører&rdquo; → Forældre tilmelder hele husstanden → Organisk vækst.
           </p>
         </div>
@@ -263,21 +323,21 @@ export default function PitchPage() {
               time: "Q3 2026",
               color: "border-blue-500/20 bg-blue-500/[0.03]",
               accent: "text-blue-400",
-              desc: "500 eksisterende kunder. Én kampagneuge. Validér 5-15 % reduktion.",
+              desc: "500 eksisterende kunder. Én kampagneuge. Validér besparelseseffekt og engagement.",
             },
             {
               phase: "Kampagne",
               time: "Q4 2026",
               color: "border-emerald-500/20 bg-emerald-500/[0.03]",
               accent: "text-emerald-400",
-              desc: "10.000-30.000 deltagere. Postnummerdyst aktiveret. PR, engagement-data, churn-reduktion.",
+              desc: "10.000-30.000 deltagere. Postnummerdyst aktiveret. PR-værdi, engagement-data, churn-måling.",
             },
             {
               phase: "National",
               time: "2027",
               color: "border-amber-500/20 bg-amber-500/[0.03]",
               accent: "text-amber-400",
-              desc: "Åben for alle 3,2 mio. husstande. Dit brand ejer dagsordenen. Høst leads fra hele branchen — på én uge.",
+              desc: "Åben for alle 3,3 mio. husstande. Dit brand ejer dagsordenen. Høst leads fra hele branchen — på én uge.",
             },
           ].map((s, i) => (
             <div key={i} className={`flex items-start gap-6 rounded-2xl border p-6 ${s.color}`}>
@@ -302,7 +362,7 @@ export default function PitchPage() {
             Klar til at invitere hele Danmark?
           </h2>
           <p className="mt-4 text-white/45 leading-relaxed">
-            Platformen er bygget. Konceptet er bevist internationalt. Ingen i Danmark har gjort det endnu.
+            Platformen er bygget. Konceptet er dokumenteret internationalt. Ingen i Danmark har gjort det endnu.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -317,6 +377,20 @@ export default function PitchPage() {
             Demo-login: anna0@demo.dk / test1234
           </p>
         </div>
+      </section>
+
+      {/* ─── FOOTNOTES ───────────────────────────────────────────── */}
+      <section className="mx-auto max-w-3xl px-6 py-12 border-t border-white/5">
+        <h3 className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">Kilder</h3>
+        <ol className="space-y-2 text-[11px] text-white/25 leading-relaxed list-none">
+          <li id="fn-1"><span className="text-emerald-500/50 mr-1">[1]</span> Energinet &amp; Dansk Energi: Smart-meter udrulning afsluttet ultimo 2020. Ca. 3,3 mio. elmålere installeret i Danmark.</li>
+          <li id="fn-2"><span className="text-emerald-500/50 mr-1">[2]</span> Allcott, H. (2011) &ldquo;Social Norms and Energy Conservation&rdquo;, Journal of Public Economics. Opower-studier: 2-4 % vedvarende besparelse; gamificerede challenges (OhmConnect, UKPN Shift): 5-15 % under kampagneperiode.</li>
+          <li id="fn-3"><span className="text-emerald-500/50 mr-1">[3]</span> OhmConnect Inc. — over 1 mio. registrerede brugere pr. 2022. Opkøbt af EnergyHub (Alarm.com) i 2023. Kilde: TechCrunch, GreenTech Media.</li>
+          <li id="fn-4"><span className="text-emerald-500/50 mr-1">[4]</span> UK Power Networks &ldquo;Shift&rdquo; trials (2022-2023): Flexibility-kampagner med økonomiske incitamenter. Ofgem Innovation-rapport dokumenterer 10-15 % reduktion i peak demand.</li>
+          <li id="fn-5"><span className="text-emerald-500/50 mr-1">[5]</span> Enedis / RTE Ecowatt: ecowatt.rte-france.com — nationalt realtids-signal for elnetbelastning. Lanceret 2020, bredt adopteret under energikrisen 2022-2023.</li>
+          <li id="fn-6"><span className="text-emerald-500/50 mr-1">[6]</span> Octopus Energy &ldquo;Saving Sessions&rdquo; (UK): Gamificeret demand-response med O₂ belønninger. Octopus rapporterer den laveste churn-rate i det britiske elmarked (Ofgem-data).</li>
+          <li id="fn-7"><span className="text-emerald-500/50 mr-1">[7]</span> Eloverblik (Energinet): eloverblik.dk — giver forbrugere adgang til egne historiske forbrugsdata fra DataHub via MitID-login. Op til 3 års timedata tilgængelig.</li>
+        </ol>
       </section>
 
       {/* ─── FOOTER ──────────────────────────────────────────────── */}
