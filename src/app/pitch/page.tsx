@@ -113,14 +113,17 @@ export default function PitchPage() {
         {/* Stats bar */}
         <div className="mt-20 grid w-full max-w-3xl grid-cols-3 gap-px rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden">
           {[
-            { value: 3.2, suffix: " mio.", label: "Danske husstande med smart-måler" },
-            { value: 15, suffix: "%", label: "Gns. besparelse i kampagneuge" },
-            { value: 40, suffix: "%", label: "Lavere churn hos deltagere" },
+            { end: 32, display: "3,2", suffix: " mio.", label: "Danske husstande med smart-måler" },
+            { end: 15, display: null, suffix: "%", label: "Gns. besparelse i kampagneuge" },
+            { end: 40, display: null, suffix: "%", label: "Lavere churn hos deltagere" },
           ].map((s, i) => (
             <div key={i} className="px-4 py-6 text-center sm:px-8 sm:py-8">
               <div className="text-2xl font-bold text-emerald-400 sm:text-3xl">
-                <Counter end={s.value * 10} duration={1800} suffix="" />
-                {s.suffix === " mio." ? <span className="text-lg"> mio.</span> : s.suffix}
+                {s.display ? (
+                  <>{s.display}<span className="text-lg">{s.suffix}</span></>
+                ) : (
+                  <><Counter end={s.end} duration={1800} />{s.suffix}</>
+                )}
               </div>
               <div className="mt-1 text-[11px] text-white/40 leading-tight sm:text-xs">{s.label}</div>
             </div>
