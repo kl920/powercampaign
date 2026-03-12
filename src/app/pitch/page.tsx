@@ -1,41 +1,8 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Zap, Users, Target, TrendingUp, Trophy, ArrowRight, BarChart3, Shield, MapPin, Globe, ExternalLink } from "lucide-react";
-
-/* ── Animated counter ────────────────────────────────────────────── */
-function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        observer.disconnect();
-        const start = performance.now();
-        const tick = (now: number) => {
-          const t = Math.min((now - start) / duration, 1);
-          const ease = 1 - Math.pow(1 - t, 3);
-          setValue(Math.round(end * ease));
-          if (t < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      },
-      { threshold: 0.3 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, duration]);
-
-  return (
-    <span ref={ref}>
-      {value.toLocaleString("da-DK")}
-      {suffix}
-    </span>
-  );
-}
+import { Zap, Users, Target, TrendingUp, Trophy, ArrowRight, BarChart3, Shield, MapPin, Globe } from "lucide-react";
 
 /* ── Footnote ref ────────────────────────────────────────────────── */
 function Ref({ n }: { n: number }) {
