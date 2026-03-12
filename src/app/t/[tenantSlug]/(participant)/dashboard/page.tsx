@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { db } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 import { StatCard } from "@/components/shared/stat-card";
 import { PageHeader } from "@/components/shared/page-header";
 import { Zap, Banknote, Leaf, Trophy, Clock, TrendingDown } from "lucide-react";

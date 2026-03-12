@@ -214,8 +214,8 @@ async function main() {
   const campaign = await prisma.campaign.create({
     data: {
       tenantId: tenant.id,
-      name: "Forårschallenge 2025",
-      slug: "foraar-2025",
+      name: "Forårschallenge 2026",
+      slug: "foraar-2026",
       description: "Spar strøm i 7 dage og vind fantastiske præmier!",
       status: "LIVE",
       startsAt: challengeStart,

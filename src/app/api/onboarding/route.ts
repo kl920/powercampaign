@@ -3,6 +3,9 @@ import { requireAuth, authErrorResponse } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { onboardingHouseholdSchema } from "@/lib/validation";
 import { connectDemoHousehold, generateConsumptionData } from "@/server/demo-provider";
+import { calculateAllBaselines } from "@/server/baseline";
+import { scoreAllHouseholds } from "@/server/scoring";
+import { rebuildGlobalLeaderboard } from "@/server/leaderboard";
 import type { HousingType } from "@prisma/client";
 
 export async function POST(request: NextRequest) {
@@ -92,6 +95,20 @@ export async function POST(request: NextRequest) {
       where: { id: session.userId },
       data: { onboardingCompletedAt: new Date() },
     });
+
+    // Calculate baseline, score and leaderboard immediately so the
+    // dashboard shows real numbers on the very first visit.
+    if (campaign) {
+      try {
+        await calculateAllBaselines(campaign.id);
+        await scoreAllHouseholds(campaign.id);
+        await rebuildGlobalLeaderboard(campaign.id);
+      } catch (scoringError) {
+        // Non-fatal: user can still see the dashboard, scores will be
+        // recalculated on the next admin recalculate or nightly job.
+        console.error("Scoring after onboarding failed:", scoringError);
+      }
+    }
 
     return NextResponse.json({ householdId: result.id }, { status: 201 });
   } catch (error) {
